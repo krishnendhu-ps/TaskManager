@@ -52,5 +52,14 @@ router.put("/tasks/:id", async (req, res) => {
 catch(error){
     res.status(400).json({message:error.message})
 }});
-
+//delete
+router.delete("/tasks/:id",async(req, res) => {
+    try{
+        await Task.findByIdAndDelete(req.params.id);
+        res.json({message:"Task details DELETED"});
+    }
+    catch(error){
+        res.status(500).json({message:error.message})
+    }
+})
 module.exports=router;
