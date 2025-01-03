@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { addTask } from '../api/api';
 
 const AddTaskForm = ({ refreshTasks }) => {
   const [formData, setFormData] = useState({
@@ -12,16 +13,21 @@ const AddTaskForm = ({ refreshTasks }) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: type === 'checkbox' ? checked : value, // Handle checkbox input
+      [name]: type === 'checkbox' ? checked : value, 
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Add your API or task addition logic here
+     
+      await addTask(formData);
 
-      refreshTasks();
+      if (typeof refreshTasks === 'function') {
+        refreshTasks();
+      } else {
+        console.warn('refreshTasks is not a function or is not provided.');
+      }
 
       setFormData({ Title: '', Description: '', DueDate: '', Iscompleted: false });
     } catch (error) {
@@ -51,6 +57,7 @@ const AddTaskForm = ({ refreshTasks }) => {
         name="DueDate"
         value={formData.DueDate}
         onChange={handleChange}
+        required
       />
       <label>
         <input
