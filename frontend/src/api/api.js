@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: 'http://localhost:4003/api', 
+    baseURL: 'https://taskmanager-tyko.onrender.com/api', 
 
 
 });
