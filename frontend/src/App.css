@@ -269,3 +269,55 @@ h1 {
 .search-bar input:focus {
   border-color: white;
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+  .task-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navbar ul {
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 20px;
+  }
+
+  .task-form {
+    width: 90%;
+  }
+
+  .search-bar input {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .task-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 18px;
+  }
+
+  .search-bar input {
+    width: 90%;
+  }
+
+  .add-task-btn {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .task-item h2 {
+    font-size: 1.25rem;
+  }
+}
