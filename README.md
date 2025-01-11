@@ -1,3 +1,6 @@
+#Name:P.S.Krishnendhu 
+#Question:mern2
+
 # Task Manager Application (MERN Stack)
 
 A simple task manager application built with the MERN stack (MongoDB, Express, React, Node.js) that allows users to create, view, update, and delete tasks.
